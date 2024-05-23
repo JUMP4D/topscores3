@@ -1,0 +1,13 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Streamdemain{% endblock %}
+
+{% block body %}
+    <h1>Edit Streamdemain</h1>
+
+    {{ include('streamdemain/_form.html.twig', {'button_label': 'Update'}) }}
+
+    <a href="{{ path('app_streamdemain_index') }}">back to list</a>
+
+    {{ include('streamdemain/_delete_form.html.twig') }}
+{% endblock %}

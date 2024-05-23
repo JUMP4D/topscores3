@@ -1,0 +1,38 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Streamdemain index{% endblock %}
+
+{% block body %}
+    <h1>Les streams de demain</h1>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Utilisateur</th>
+                <th>joue a</th>
+                <th>url</th>
+                <th>actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for streamdemain in streamdemains %}
+            <tr>
+                <td>{{ streamdemain.user.pseudo }}</td>
+                <td>{{ streamdemain.jeu.name }}</td>
+
+                <td><button><a href="{{ streamdemain.url.url }}">{{ streamdemain.url.url }}</a></button><td>
+                <td>
+                    <a href="{{ path('app_streamdemain_show', {'id': streamdemain.id}) }}">show</a>
+                    <a href="{{ path('app_streamdemain_edit', {'id': streamdemain.id}) }}">edit</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">no records found</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_streamdemain_new') }}">Create new</a>
+{% endblock %}
